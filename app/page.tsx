@@ -5,7 +5,7 @@ export default async function HomePage() {
   const { quarterlies } = await getQuarterlies()
 
   return (
-    <main className='w-full h-dvh grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 p-8 xl:px-0 xl:py-12'>
+    <main className='w-full h-dvh grid grid-cols-1 justify-items-center md:grid-cols-2 md:justify-items-start xl:grid-cols-3 2xl:grid-cols-4 px-8 py-12 xl:px-0'>
       {quarterlies.map(({ id, title, quarter, cover, year }) => {
         return (
           <Link

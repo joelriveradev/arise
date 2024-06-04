@@ -20,11 +20,11 @@ export default async function QuarterlyOverviewPage({ params }: Props) {
 
   return (
     <main className='w-full flex items-start pt-0 md:pt-12 md:pr-8 xl:pr-0'>
-      <aside className='hidden md:flex md:w-1/4 md:ml-8 xl:ml-0 mr-12'>
-        <img className=' rounded-xl' src={cover.url} />
+      <aside className='hidden lg:flex lg:w-1/6 md:ml-8 lg:mr-8 xl:m-0'>
+        <img className='max-w-[200px] rounded-xl' src={cover.url} />
       </aside>
 
-      <div className='w-full md:w-3/4 p-8 md:p-0'>
+      <div className='w-full md:w-3/4 p-8 md:px-0 md:pl-8 md:py-0'>
         <h1 className='font-semibold text-2xl md:text-3xl'>{title}</h1>
 
         <h2 className='mt-6 mb-2'>Introduction</h2>

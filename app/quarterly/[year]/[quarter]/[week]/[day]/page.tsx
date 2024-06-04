@@ -63,7 +63,7 @@ export default async function LessonDetailPage({ params }: Props) {
                 }
               )}
             >
-              <span className='w-full block truncate'>
+              <span className='w-full block truncate lg:pr-5'>
                 {i + 1}. {daily.title}
               </span>
             </Link>
@@ -80,7 +80,7 @@ export default async function LessonDetailPage({ params }: Props) {
       <main className='w-full lg:flex lg:items-start lg:pr-0'>
         <Navigation className='hidden lg:block lg:w-1/4 lg:pl-8 xl:pl-0 pt-10' />
 
-        <div className='min-h-screen w-full max-w-2xl mx-auto lg:ml-0 lg:border-x border-x-neutral-200 py-10 pb-14 lg:pb-10'>
+        <div className='w-full h-[calc(100dvh-70px)] lg:overflow-y-scroll max-w-2xl mx-auto lg:ml-0 lg:border-x border-x-neutral-200 py-10 pb-14 lg:pb-10'>
           <header className='antialiased'>
             <h1 className='font-bold text-center text-2xl md:text-3xl'>
               {title}
