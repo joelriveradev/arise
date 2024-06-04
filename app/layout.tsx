@@ -13,6 +13,7 @@ import Link from 'next/link'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
+import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Arise',
@@ -28,23 +29,25 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <ClerkProvider>
       <html lang='en'>
-        <body className={inter.className}>
+        <body className={cn(inter.className, 'min-h-screen')}>
           <header className='w-full text-lg px-8 py-5 border-b border-b-neutral-200'>
             <nav className='w-full flex items-center justify-between max-w-7xl mx-auto'>
-              <Link href='/' className='font-bold'>
+              <Link href='/' className='font-bold' prefetch>
                 arise
               </Link>
 
-              <SignedOut>
-                <SignInButton />
-              </SignedOut>
+              <div className='text-base'>
+                <SignedOut>
+                  <SignInButton />
+                </SignedOut>
+              </div>
 
               <SignedIn>
                 <UserButton />
               </SignedIn>
             </nav>
           </header>
-          <div className='max-w-7xl mx-auto>'>{children}</div>
+          <div className='max-w-7xl mx-auto'>{children}</div>
         </body>
       </html>
     </ClerkProvider>
