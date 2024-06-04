@@ -27,17 +27,11 @@ export default async function QuarterlyOverviewPage({ params }: Props) {
       <div className='w-full md:w-3/4 p-8 md:p-0'>
         <h1 className='font-semibold text-2xl md:text-3xl'>{title}</h1>
 
-        <p className='antialised text-neutral-500 max-w-3xl my-6'>
+        <h2 className='mt-6 mb-2'>Introduction</h2>
+
+        <p className='antialised text-neutral-500 max-w-3xl'>
           {introduction?.text}
         </p>
-
-        <Button
-          type='button'
-          variant='outline'
-          className='border-black rounded-full px-6'
-        >
-          Read
-        </Button>
 
         <div className='mt-8'>
           <ol>
