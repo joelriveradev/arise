@@ -1512,6 +1512,7 @@ export type Lesson = Entity & Node & {
   /** Get the other localizations for this document */
   localizations: Array<Lesson>;
   notes?: Maybe<RichText>;
+  number: Scalars['Int']['output'];
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   /** User that last published this document */
@@ -1637,6 +1638,7 @@ export type LessonCreateInput = {
   localizations?: InputMaybe<LessonCreateLocalizationsInput>;
   /** notes input for default locale (en) */
   notes?: InputMaybe<Scalars['RichTextAST']['input']>;
+  number: Scalars['Int']['input'];
   questions?: InputMaybe<QuestionsCreateOneInlineInput>;
   /** title input for default locale (en) */
   title: Scalars['String']['input'];
@@ -1750,6 +1752,21 @@ export type LessonManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  number?: InputMaybe<Scalars['Int']['input']>;
+  /** All values greater than the given value. */
+  number_gt?: InputMaybe<Scalars['Int']['input']>;
+  /** All values greater than or equal the given value. */
+  number_gte?: InputMaybe<Scalars['Int']['input']>;
+  /** All values that are contained in given list. */
+  number_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  /** All values less than the given value. */
+  number_lt?: InputMaybe<Scalars['Int']['input']>;
+  /** All values less than or equal the given value. */
+  number_lte?: InputMaybe<Scalars['Int']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  number_not?: InputMaybe<Scalars['Int']['input']>;
+  /** All values that are not contained in given list. */
+  number_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -1795,6 +1812,8 @@ export enum LessonOrderByInput {
   DayDesc = 'day_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  NumberAsc = 'number_ASC',
+  NumberDesc = 'number_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   TitleAsc = 'title_ASC',
@@ -1811,6 +1830,7 @@ export type LessonUpdateInput = {
   localizations?: InputMaybe<LessonUpdateLocalizationsInput>;
   /** notes input for default locale (en) */
   notes?: InputMaybe<Scalars['RichTextAST']['input']>;
+  number?: InputMaybe<Scalars['Int']['input']>;
   questions?: InputMaybe<QuestionsUpdateOneInlineInput>;
   /** title input for default locale (en) */
   title?: InputMaybe<Scalars['String']['input']>;
@@ -1859,6 +1879,7 @@ export type LessonUpdateManyInput = {
   localizations?: InputMaybe<LessonUpdateManyLocalizationsInput>;
   /** notes input for default locale (en) */
   notes?: InputMaybe<Scalars['RichTextAST']['input']>;
+  number?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type LessonUpdateManyLocalizationDataInput = {
@@ -1996,6 +2017,21 @@ export type LessonWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']['input']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']['input']>;
+  number?: InputMaybe<Scalars['Int']['input']>;
+  /** All values greater than the given value. */
+  number_gt?: InputMaybe<Scalars['Int']['input']>;
+  /** All values greater than or equal the given value. */
+  number_gte?: InputMaybe<Scalars['Int']['input']>;
+  /** All values that are contained in given list. */
+  number_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  /** All values less than the given value. */
+  number_lt?: InputMaybe<Scalars['Int']['input']>;
+  /** All values less than or equal the given value. */
+  number_lte?: InputMaybe<Scalars['Int']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  number_not?: InputMaybe<Scalars['Int']['input']>;
+  /** All values that are not contained in given list. */
+  number_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -5970,6 +6006,7 @@ export type Week = Entity & Node & {
   locale: Locale;
   /** Get the other localizations for this document */
   localizations: Array<Week>;
+  number: Scalars['Int']['output'];
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   /** User that last published this document */
@@ -6085,6 +6122,7 @@ export type WeekCreateInput = {
   lessons?: InputMaybe<LessonCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: InputMaybe<WeekCreateLocalizationsInput>;
+  number: Scalars['Int']['input'];
   /** title input for default locale (en) */
   title: Scalars['String']['input'];
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -6181,6 +6219,21 @@ export type WeekManyWhereInput = {
   lessons_every?: InputMaybe<LessonWhereInput>;
   lessons_none?: InputMaybe<LessonWhereInput>;
   lessons_some?: InputMaybe<LessonWhereInput>;
+  number?: InputMaybe<Scalars['Int']['input']>;
+  /** All values greater than the given value. */
+  number_gt?: InputMaybe<Scalars['Int']['input']>;
+  /** All values greater than or equal the given value. */
+  number_gte?: InputMaybe<Scalars['Int']['input']>;
+  /** All values that are contained in given list. */
+  number_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  /** All values less than the given value. */
+  number_lt?: InputMaybe<Scalars['Int']['input']>;
+  /** All values less than or equal the given value. */
+  number_lte?: InputMaybe<Scalars['Int']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  number_not?: InputMaybe<Scalars['Int']['input']>;
+  /** All values that are not contained in given list. */
+  number_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -6223,6 +6276,8 @@ export enum WeekOrderByInput {
   CreatedAtDesc = 'createdAt_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  NumberAsc = 'number_ASC',
+  NumberDesc = 'number_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   TitleAsc = 'title_ASC',
@@ -6236,6 +6291,7 @@ export type WeekUpdateInput = {
   lessons?: InputMaybe<LessonUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: InputMaybe<WeekUpdateLocalizationsInput>;
+  number?: InputMaybe<Scalars['Int']['input']>;
   /** title input for default locale (en) */
   title?: InputMaybe<Scalars['String']['input']>;
 };
@@ -6279,6 +6335,7 @@ export type WeekUpdateManyInlineInput = {
 export type WeekUpdateManyInput = {
   /** Optional updates to localizations */
   localizations?: InputMaybe<WeekUpdateManyLocalizationsInput>;
+  number?: InputMaybe<Scalars['Int']['input']>;
   /** title input for default locale (en) */
   title?: InputMaybe<Scalars['String']['input']>;
 };
@@ -6403,6 +6460,21 @@ export type WeekWhereInput = {
   lessons_every?: InputMaybe<LessonWhereInput>;
   lessons_none?: InputMaybe<LessonWhereInput>;
   lessons_some?: InputMaybe<LessonWhereInput>;
+  number?: InputMaybe<Scalars['Int']['input']>;
+  /** All values greater than the given value. */
+  number_gt?: InputMaybe<Scalars['Int']['input']>;
+  /** All values greater than or equal the given value. */
+  number_gte?: InputMaybe<Scalars['Int']['input']>;
+  /** All values that are contained in given list. */
+  number_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  /** All values less than the given value. */
+  number_lt?: InputMaybe<Scalars['Int']['input']>;
+  /** All values less than or equal the given value. */
+  number_lte?: InputMaybe<Scalars['Int']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  number_not?: InputMaybe<Scalars['Int']['input']>;
+  /** All values that are not contained in given list. */
+  number_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
