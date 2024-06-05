@@ -1,7 +1,9 @@
 import { getQuarterlyLesson } from '@/actions/quarterlies'
 import { ArrowLeft, Menu } from 'lucide-react'
+import { Libre_Caslon_Text } from 'next/font/google'
 import { Show } from '@/components/show'
 import { Input } from '@/components/ui/input'
+import { LinkifyText } from '@/components/linkify-text'
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer'
 import { formatDate } from '@/lib/utils'
 import { cn } from '@/lib/utils'
@@ -16,6 +18,12 @@ interface Props {
     day: string
   }
 }
+
+const CaslonText = Libre_Caslon_Text({
+  subsets: ['latin'],
+  weight: ['400'],
+})
+
 export default async function LessonDetailPage({ params }: Props) {
   const { year: y, quarter: q, week: w, day: d } = params
 
@@ -82,7 +90,12 @@ export default async function LessonDetailPage({ params }: Props) {
 
         <div className='w-full h-[calc(100dvh-70px)] lg:overflow-y-scroll max-w-2xl mx-auto lg:ml-0 lg:border-x border-x-neutral-200 py-10 pb-14 lg:pb-10'>
           <header className='antialiased'>
-            <h1 className='font-bold text-center text-2xl md:text-3xl'>
+            <h1
+              className={cn(
+                'text-center text-2xl md:text-3xl lg:text-4xl',
+                CaslonText.className
+              )}
+            >
               {title}
             </h1>
 
@@ -101,7 +114,7 @@ export default async function LessonDetailPage({ params }: Props) {
 
                 return (
                   <li className='antialiased' key={key}>
-                    {i + 1}. {question}
+                    {i + 1}. <LinkifyText text={question} />
                   </li>
                 )
               })}
@@ -129,7 +142,9 @@ export default async function LessonDetailPage({ params }: Props) {
           <Show when={!!notes}>
             <section className='p-6 bg-neutral-50 antialiased text-neutral-600'>
               <h2 className='mb-5'>Notes</h2>
-              <p>{notes?.text}</p>
+              <p>
+                <LinkifyText text={notes?.text!} />
+              </p>
             </section>
           </Show>
 
@@ -141,7 +156,9 @@ export default async function LessonDetailPage({ params }: Props) {
                 {egwQuotes!.map(({ id, text }) => {
                   return (
                     <li key={id} className='mb-4'>
-                      <blockquote>{text?.text}</blockquote>
+                      <blockquote>
+                        <LinkifyText text={text?.text!} />
+                      </blockquote>
                     </li>
                   )
                 })}
