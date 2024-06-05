@@ -167,7 +167,7 @@ export default async function LessonDetailPage({ params }: Props) {
           </Show>
         </div>
 
-        <div className='hidden lg:block lg:w-1/4 min-h-screen pt-10 pl-10'></div>
+        <div className='hidden lg:block lg:w-1/4 h-[calc(100dvh-70px)] pt-10 pl-10'></div>
 
         <div className='fixed m-3 bottom-0 left-0 h-14 backdrop-blur-md bg-neutral-800/80 text-white lg:hidden rounded-xl'>
           <Drawer>
