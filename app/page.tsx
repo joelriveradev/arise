@@ -1,4 +1,6 @@
 import { getQuarterlies } from '@/actions/quarterlies'
+
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default async function HomePage() {
@@ -14,7 +16,16 @@ export default async function HomePage() {
             href={`/quarterly/${year}/${quarter}`}
             prefetch
           >
-            <img className='rounded-2xl' src={cover.url} alt={title} />
+            <Image
+              className='rounded-2xl'
+              src={cover.url}
+              blurDataURL={cover.url}
+              alt={`The quarterly cover art for Q${quarter} ${year}.`}
+              width={280}
+              height={440}
+              placeholder='blur'
+              priority
+            />
 
             <p className='truncate font-semibold antialised mt-3 text-base'>
               {title}
