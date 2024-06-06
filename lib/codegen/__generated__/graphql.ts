@@ -1880,10 +1880,13 @@ export type LessonUpdateManyInput = {
   /** notes input for default locale (en) */
   notes?: InputMaybe<Scalars['RichTextAST']['input']>;
   number?: InputMaybe<Scalars['Int']['input']>;
+  /** title input for default locale (en) */
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type LessonUpdateManyLocalizationDataInput = {
   notes?: InputMaybe<Scalars['RichTextAST']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type LessonUpdateManyLocalizationInput = {
