@@ -1,12 +1,14 @@
 'use client'
 
 import { useState, Fragment, startTransition } from 'react'
+
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogFooter,
 } from '@/components/ui/dialog'
+
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
 import { Show } from '@/components/show'
@@ -26,9 +28,6 @@ export const LinkifyText = ({ text }: Props) => {
   const [copied, setCopied] = useState(false)
 
   const { toast } = useToast()
-
-  const regex =
-    /\b([1-3]?\s?(?:[A-Za-z]+\.)?[A-Za-z]+\.?)\s(\d{1,3}):(\d{1,3})(?:-(\d{1,3}))?(?:,\s*(\d{1,3}))?\b/g
 
   const handleLinkClick = async (ref: string) => {
     const res = await fetchBibleVerse(ref)
@@ -81,6 +80,9 @@ export const LinkifyText = ({ text }: Props) => {
   const ParsedText = () => {
     const elements: Array<JSX.Element | string> = []
     let lastIndex = 0
+
+    const regex =
+      /\b([1-3]?\s?(?:[A-Za-z]+\.)?[A-Za-z]+\.?)\s(\d{1,3}):(\d{1,3})(?:-(\d{1,3}))?(?:,\s*(\d{1,3}))?\b/g
 
     text.replace(
       regex,
@@ -142,13 +144,13 @@ export const LinkifyText = ({ text }: Props) => {
         <DialogContent className='antialiased !rounded-2xl'>
           <Show when={!!verse && !error}>
             <DialogHeader>
-              <p className='font-semibold'>{ref}</p>
+              <p className='font-semibold'>{ref} — KJV</p>
             </DialogHeader>
 
-            <p className='text-2xl text-neutral-600'>{verse}</p>
+            <p className='text-xl mb-2 text-neutral-600'>{verse}</p>
 
             <DialogFooter className='w-full !justify-start'>
-              <Button className='rounded-full' onClick={renderToast}>
+              <Button className='rounded-full mb-1.5' onClick={renderToast}>
                 <Show when={!copied}>
                   Copy <Copy size={16} className='ml-2' />
                 </Show>
