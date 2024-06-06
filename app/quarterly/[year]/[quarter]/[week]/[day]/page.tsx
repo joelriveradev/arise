@@ -63,7 +63,7 @@ export default async function LessonDetailPage({ params }: Props) {
               className={cn(
                 'relative block text-neutral-400 mb-6 hover:underline hover:underline-offset-2',
                 {
-                  'text-black': currentDay && !dark,
+                  'text-stone-600': currentDay && !dark,
                   'after:border-black': !dark,
                   'after:border-white': dark,
                   'text-white': currentDay && dark,
@@ -85,10 +85,10 @@ export default async function LessonDetailPage({ params }: Props) {
     const { title, questions, notes, egwQuotes } = day
 
     return (
-      <main className='w-full lg:flex lg:items-start lg:pr-0'>
-        <Navigation className='hidden lg:block lg:w-1/4 lg:pl-8 xl:pl-0 pt-10' />
+      <main className='w-full lg:flex lg:items-start lg:pr-0 md:border-x'>
+        <Navigation className='hidden lg:block lg:w-1/4 lg:pl-[30px] pt-10' />
 
-        <div className='w-full h-[calc(100dvh-70px)] lg:overflow-y-scroll max-w-2xl mx-auto lg:ml-0 lg:border-x border-x-neutral-200 py-10 pb-14 lg:pb-10'>
+        <div className='w-full h-[calc(100dvh-70px)] no-scrollbar md:overflow-y-scroll max-w-2xl mx-auto lg:ml-0 md:border-x border-x-neutral-200 py-10 pb-14 lg:pb-10'>
           <header className='antialiased'>
             <h1
               className={cn(
@@ -108,6 +108,12 @@ export default async function LessonDetailPage({ params }: Props) {
           </header>
 
           <section className='mt-10 border-y border-y-neutral-200 text-nowrap p-6'>
+            <Show when={!!questions?.label}>
+              <p className='mb-2 antialiased font-medium'>
+                <LinkifyText text={questions!.label!} />
+              </p>
+            </Show>
+
             <ol className='overflow-x-scroll'>
               {questions!.list.map((question, i) => {
                 const key = `question-${i}`
