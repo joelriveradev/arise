@@ -32,6 +32,7 @@ export const GET_QUARTERLY_BY_YEAR = gql`
         lessons {
           id
           title
+          number
         }
       }
     }
@@ -56,6 +57,7 @@ export const GET_QUARTERLY_LESSON = gql`
           number
           day
           questions {
+            label
             list
           }
           egwQuotes {
