@@ -3,7 +3,6 @@ import { ArrowLeft, Menu } from 'lucide-react'
 import { Libre_Caslon_Text } from 'next/font/google'
 import { Paper } from '@/components/paper'
 import { Show } from '@/components/show'
-import { Input } from '@/components/ui/input'
 import { LinkifyText } from '@/components/linkify-text'
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer'
 import { formatDate } from '@/lib/utils'
@@ -89,7 +88,7 @@ export default async function LessonDetailPage({ params }: Props) {
       <main className='w-full lg:flex lg:items-start lg:pr-0 md:border-x'>
         <Navigation className='hidden lg:block lg:w-1/4 lg:pl-[30px] pt-10' />
 
-        <div className='w-full h-[calc(100dvh-70px)] no-scrollbar md:overflow-y-scroll max-w-2xl mx-auto lg:ml-0 md:border-x border-x-neutral-200 py-10 pb-14 lg:pb-10'>
+        <div className='w-full h-[calc(100dvh-70px)] md:overflow-y-scroll max-w-2xl mx-auto lg:ml-0 md:border-x border-x-neutral-200 py-10 pb-14 lg:pb-10 scroll-smooth'>
           <header className='antialiased'>
             <h1
               className={cn(
