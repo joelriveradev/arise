@@ -73,10 +73,14 @@ export default async function QuarterlyOverviewPage({ params }: Props) {
           <Accordion type='single' collapsible>
             {weeks.map(({ id, title, number, lessons }, i) => {
               return (
-                <AccordionItem value={id} key={id} className=''>
-                  <AccordionTrigger className='hover:bg-neutral-50 px-5'>
-                    <Link href={`${quarter}/${number}/1`} prefetch>
-                      <span className='text-sm lg:text-lg antialiased text-left font-medium'>
+                <AccordionItem value={id} key={id}>
+                  <AccordionTrigger className='hover:bg-neutral-50'>
+                    <Link
+                      className='px-5 text-left truncate'
+                      href={`${quarter}/${number}/1`}
+                      prefetch
+                    >
+                      <span className='lg:text-lg antialiased font-medium'>
                         Week {i + 1}: {title}
                       </span>
                     </Link>
@@ -88,7 +92,7 @@ export default async function QuarterlyOverviewPage({ params }: Props) {
                         return (
                           <li
                             key={lesson.id}
-                            className='mb-4 pl-8 lg:pl-12 text-neutral-600 last:mb-1.5'
+                            className='mb-4 pl-10 lg:pl-12 text-neutral-600 last:mb-1.5'
                           >
                             <Link
                               href={`${quarter}/${number}/${lesson.number}`}

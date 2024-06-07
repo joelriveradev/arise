@@ -146,14 +146,17 @@ export const LinkifyText = ({ text }: Props) => {
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
         <DialogContent className='antialiased !rounded-2xl'>
           <Show when={!!verse && !error}>
-            <DialogHeader>
+            <DialogHeader className='text-left'>
               <p className='font-semibold'>{ref} — KJV</p>
             </DialogHeader>
 
             <p className='text-xl mb-2 text-neutral-600'>{verse}</p>
 
             <DialogFooter className='w-full !justify-start'>
-              <Button className='rounded-full mb-1.5' onClick={renderToast}>
+              <Button
+                className='max-w-28 rounded-full mb-1.5'
+                onClick={renderToast}
+              >
                 <Show when={!copied}>
                   Copy <Copy size={16} className='ml-2' />
                 </Show>

@@ -62,7 +62,7 @@ export default async function LessonDetailPage({ params }: Props) {
               href={`${daily.number}`}
               prefetch
               className={cn(
-                'relative block text-neutral-400 mb-6 hover:underline hover:underline-offset-2',
+                'relative block text-neutral-400 text-xl lg:text-base mb-6 hover:underline hover:underline-offset-2',
                 {
                   'text-stone-600': currentDay && !dark,
                   'after:border-black': !dark,
