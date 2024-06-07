@@ -49,7 +49,7 @@ export const Paper = ({ lines }: Props) => {
         <Input
           data-line={i}
           type='text'
-          className='relative rounded-none border-b border-b-neutral-200 border-t-0 border-r-0 border-l-0 focus-visible:ring-0 focus-visible:ring-offset-0 pl-12'
+          className='relative rounded-none border-b border-b-neutral-200 border-t-0 border-r-0 border-l-0 focus-visible:ring-0 focus-visible:ring-offset-0 pl-12 text-base antialiased'
           onFocus={handleLineFocus}
           onKeyDown={handleKeyDown}
         />
