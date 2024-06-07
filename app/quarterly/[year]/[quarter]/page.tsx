@@ -74,9 +74,9 @@ export default async function QuarterlyOverviewPage({ params }: Props) {
             {weeks.map(({ id, title, number, lessons }, i) => {
               return (
                 <AccordionItem value={id} key={id}>
-                  <AccordionTrigger className='hover:bg-neutral-50'>
+                  <AccordionTrigger className='hover:bg-neutral-50 pr-5'>
                     <Link
-                      className='px-5 text-left truncate'
+                      className='px-5 pr-6 text-left truncate'
                       href={`${quarter}/${number}/1`}
                       prefetch
                     >
