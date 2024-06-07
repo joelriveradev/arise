@@ -138,7 +138,10 @@ export const LinkifyText = ({ text }: Props) => {
   return (
     <Fragment>
       <ParsedText />
-      <Toaster />
+
+      <Show when={copied}>
+        <Toaster />
+      </Show>
 
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
         <DialogContent className='antialiased !rounded-2xl'>
