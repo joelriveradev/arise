@@ -19,8 +19,10 @@ export const Paper = ({ lines }: Props) => {
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
-    const lines = document.querySelectorAll('[data-line]')
-    const line = lines[current] as HTMLInputElement
+    const line = document.querySelector(
+      `[data-line="${current}"]`
+    ) as HTMLInputElement
+
     line.focus()
   })
 
