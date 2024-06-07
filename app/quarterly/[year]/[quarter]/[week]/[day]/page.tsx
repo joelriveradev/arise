@@ -1,6 +1,7 @@
 import { getQuarterlyLesson } from '@/actions/quarterlies'
 import { ArrowLeft, Menu } from 'lucide-react'
 import { Libre_Caslon_Text } from 'next/font/google'
+import { Paper } from '@/components/paper'
 import { Show } from '@/components/show'
 import { Input } from '@/components/ui/input'
 import { LinkifyText } from '@/components/linkify-text'
@@ -128,26 +129,13 @@ export default async function LessonDetailPage({ params }: Props) {
           </section>
 
           <section>
-            {questions!.list.map((_, i) => {
-              const key = `question-${i}`
-
-              return (
-                <div
-                  key={key}
-                  className='relative after:block after:absolute after:w-px after:h-full after:bg-red-100 after:left-8 after:top-0'
-                >
-                  <Input
-                    type='text'
-                    className='relative rounded-none border-b border-b-neutral-200 border-t-0 border-r-0 border-l-0 focus-visible:ring-0 focus-visible:ring-offset-0 pl-12'
-                  />
-                </div>
-              )
-            })}
+            <Paper lines={questions?.list.length || 0} />
           </section>
 
           <Show when={!!notes}>
             <section className='p-6 bg-neutral-50 antialiased text-neutral-600'>
               <h2 className='mb-5'>Notes</h2>
+
               <p>
                 <LinkifyText text={notes?.text!} />
               </p>
