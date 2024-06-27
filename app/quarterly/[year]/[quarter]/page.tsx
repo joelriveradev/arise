@@ -35,7 +35,7 @@ export default async function QuarterlyOverviewPage({ params }: Props) {
   const { title, cover, introduction, weeks } = quarterlies[0]
 
   return (
-    <main className='w-full h-[calc(100dvh-70px)] flex items-start justify-center pt-0 md:pt-12 md:pr-8 xl:pr-0 border-x'>
+    <main className='w-full min-h-[calc(100dvh-70px)] flex items-start justify-center pt-0 md:pt-12 md:pr-8 xl:pr-0 border-x'>
       <aside className='hidden h-full md:flex md:flex-col md:items-center lg:w-1/6 md:ml-8 xl:m-0'>
         <Image
           className='max-w-[180px] rounded-2xl'
@@ -69,7 +69,7 @@ export default async function QuarterlyOverviewPage({ params }: Props) {
           {introduction?.text}
         </p>
 
-        <div className='mt-8 border-t'>
+        <div className='mt-8 border-t pb-24'>
           <Accordion type='single' collapsible>
             {weeks.map(({ id, title, number, lessons }, i) => {
               return (
