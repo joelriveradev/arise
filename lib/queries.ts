@@ -2,7 +2,7 @@ import { gql } from 'graphql-request'
 
 export const GET_QUARTERLIES = gql`
   query Quarterlies {
-    quarterlies {
+    quarterlies(first: 25) {
       id
       title
       quarter
@@ -25,7 +25,7 @@ export const GET_QUARTERLY_BY_YEAR = gql`
       cover {
         url
       }
-      weeks {
+      weeks(first: 13) {
         id
         title
         number
