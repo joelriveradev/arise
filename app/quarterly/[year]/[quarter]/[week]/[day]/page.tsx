@@ -6,6 +6,7 @@ import { Show } from '@/components/show'
 import { LinkifyText } from '@/components/linkify-text'
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer'
 import { formatDate } from '@/lib/utils'
+import { RichText } from '@/components/richtext'
 import { cn } from '@/lib/utils'
 
 import Link from 'next/link'
@@ -143,17 +144,11 @@ export default async function LessonDetailPage({ params }: Props) {
 
           <Show when={egwQuotes.length > 0}>
             <section className='p-6 antialiased text-stone-600'>
-              <h2 className='mb-5'>Inspiration</h2>
+              <h2 className='mb-5'>Further Study</h2>
 
               <ol>
-                {egwQuotes!.map(({ id, text }) => {
-                  return (
-                    <li key={id} className='mb-4'>
-                      <blockquote>
-                        <LinkifyText text={text?.text!} />
-                      </blockquote>
-                    </li>
-                  )
+                {egwQuotes.map(({ text }) => {
+                  return <RichText text={text} />
                 })}
               </ol>
             </section>
